@@ -4,8 +4,8 @@ const unsigned char A4990MotorShield::_M2DIR = 8;
 const unsigned char A4990MotorShield::_M1PWM = 9;
 const unsigned char A4990MotorShield::_M2PWM = 10;
 const unsigned char A4990MotorShield::_FAULT = 6;
-bool A4990MotorShield::_flipM1 = false;
-bool A4990MotorShield::_flipM2 = false;
+boolean A4990MotorShield::_flipM1 = false;
+boolean A4990MotorShield::_flipM2 = false;
 
 void A4990MotorShield::initPinsAndMaybeTimer()
 {
@@ -14,9 +14,9 @@ void A4990MotorShield::initPinsAndMaybeTimer()
   pinMode(_M1DIR, OUTPUT);
   pinMode(_M2DIR, OUTPUT);
   pinMode(_FAULT, INPUT);
-  digitalWrite(_FAULT, HIGH); //enable pullup
+  digitalWrite(_FAULT, HIGH); // enable pullup
 #ifdef A4990MOTORSHIELD_USE_20KHZ_PWM
-  // Timer 1 configuration
+  // timer 1 configuration
   // prescaler: clockI/O / 1
   // outputs enabled
   // phase-correct PWM
@@ -30,29 +30,19 @@ void A4990MotorShield::initPinsAndMaybeTimer()
 #endif
 }
 
-void A4990MotorShield::flipM1(bool flip)
-{
-  A4990MotorShield::_flipM1 = flip;
-}
-
-void A4990MotorShield::flipM2(bool flip)
-{
-  A4990MotorShield::_flipM2 = flip;
-}
-
-// speed is a number between -400 and 400
+// speed should be a number between -400 and 400
 void A4990MotorShield::setM1Speed(int speed)
 {
   init(); // initialize if necessary
     
-  bool reverse = 0;
+  boolean reverse = 0;
   
   if (speed < 0)
   {
     speed = -speed; // make speed a positive quantity
     reverse = 1;    // preserve the direction
   }
-  if (speed > 400)  // Max 
+  if (speed > 400)  // max 
     speed = 400;
     
 #ifdef A4990MOTORSHIELD_USE_20KHZ_PWM
@@ -61,25 +51,25 @@ void A4990MotorShield::setM1Speed(int speed)
   analogWrite(_M1PWM, speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
 #endif 
 
-  if (reverse ^ A4990MotorShield::_flipM1) // flip if speed was negative or flip_M1 setting is active, but not both
+  if (reverse ^ _flipM1) // flip if speed was negative or _flipM1 setting is active, but not both
     digitalWrite(_M1DIR, HIGH);
   else
     digitalWrite(_M1DIR, LOW);
 }
 
-// speed is a number between -400 and 400
+// speed should be a number between -400 and 400
 void A4990MotorShield::setM2Speed(int speed)
 {
   init(); // initialize if necessary
     
-  bool reverse = 0;
+  boolean reverse = 0;
   
   if (speed < 0)
   {
-    speed = -speed;  // Make speed a positive quantity
-    reverse = 1;  // Preserve the direction
+    speed = -speed;  // make speed a positive quantity
+    reverse = 1;  // preserve the direction
   }
-  if (speed > 400)  // Max PWM duty cycle
+  if (speed > 400)  // max PWM duty cycle
     speed = 400;
     
 #ifdef A4990MOTORSHIELD_USE_20KHZ_PWM
@@ -88,21 +78,31 @@ void A4990MotorShield::setM2Speed(int speed)
   analogWrite(_M2PWM, speed * 51 / 80); // default to using analogWrite, mapping 400 to 255
 #endif
 
-  if (reverse ^ A4990MotorShield::_flipM2) // flip if speed was negative or flip_M2 setting is active, but not both
+  if (reverse ^ _flipM2) // flip if speed was negative or _flipM2 setting is active, but not both
     digitalWrite(_M2DIR, HIGH);
   else
     digitalWrite(_M2DIR, LOW);
 }
 
 // set speed for both motors
-// speed is a number between -400 and 400
+// speed should be a number between -400 and 400
 void A4990MotorShield::setSpeeds(int m1Speed, int m2Speed)
 {
   setM1Speed(m1Speed);
   setM2Speed(m2Speed);
 }
 
-bool A4990MotorShield::getFault()
+void A4990MotorShield::flipM1(boolean flip)
+{
+  A4990MotorShield::_flipM1 = flip;
+}
+
+void A4990MotorShield::flipM2(boolean flip)
+{
+  A4990MotorShield::_flipM2 = flip;
+}
+
+boolean A4990MotorShield::getFault()
 {
   return digitalRead(_FAULT) == LOW;
 }
