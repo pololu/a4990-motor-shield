@@ -104,5 +104,6 @@ void A4990MotorShield::flipM2(boolean flip)
 
 boolean A4990MotorShield::getFault()
 {
+  init(); // initialize if necessary
   return digitalRead(_FAULT) == LOW;
 }
