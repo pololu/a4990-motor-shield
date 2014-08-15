@@ -13,8 +13,7 @@ void A4990MotorShield::initPinsAndMaybeTimer()
   pinMode(_M2PWM, OUTPUT);
   pinMode(_M1DIR, OUTPUT);
   pinMode(_M2DIR, OUTPUT);
-  pinMode(_FAULT, INPUT);
-  digitalWrite(_FAULT, HIGH); // enable pullup
+  pinMode(_FAULT, INPUT_PULLUP);
 #ifdef A4990MOTORSHIELD_USE_20KHZ_PWM
   // timer 1 configuration
   // prescaler: clockI/O / 1
