@@ -11,7 +11,7 @@ class A4990MotorShield
 {
   public:
     // Constructor
-    A4990MotorShield();
+    //A4990MotorShield();
     
     // Public methods
     static void setM1Speed(int speed);
@@ -23,11 +23,11 @@ class A4990MotorShield
     
   private:
     static void initPinsAndMaybeTimer();
-    static unsigned char _M1DIR;
-    static unsigned char _M2DIR;
-    static unsigned char _M1PWM;
-    static unsigned char _M2PWM;
-    static unsigned char _FAULT;
+    const static unsigned char _M1DIR;
+    const static unsigned char _M2DIR;
+    const static unsigned char _M1PWM;
+    const static unsigned char _M2PWM;
+    const static unsigned char _FAULT;
     static bool _flipM1;
     static bool _flipM2;
     static inline void init()

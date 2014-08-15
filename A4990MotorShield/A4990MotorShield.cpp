@@ -1,21 +1,11 @@
 #include "A4990MotorShield.h"
-unsigned char A4990MotorShield::_M1DIR;
-unsigned char A4990MotorShield::_M2DIR;
-unsigned char A4990MotorShield::_M1PWM;
-unsigned char A4990MotorShield::_M2PWM;
-unsigned char A4990MotorShield::_FAULT;
-bool A4990MotorShield::_flipM1;
-bool A4990MotorShield::_flipM2;
-
-A4990MotorShield::A4990MotorShield()
-{
-  _M1DIR = 7;
-  _M1PWM = 9;
-  _M2DIR = 8;
-  _M2PWM = 10;
-  _FAULT = 6;
-  _flipM1 = _flipM2 = false;
-}
+const unsigned char A4990MotorShield::_M1DIR = 7;
+const unsigned char A4990MotorShield::_M2DIR = 8;
+const unsigned char A4990MotorShield::_M1PWM = 9;
+const unsigned char A4990MotorShield::_M2PWM = 10;
+const unsigned char A4990MotorShield::_FAULT = 6;
+bool A4990MotorShield::_flipM1 = false;
+bool A4990MotorShield::_flipM2 = false;
 
 void A4990MotorShield::initPinsAndMaybeTimer()
 {
