@@ -3,8 +3,8 @@
 /*
  * This example uses the A4990MotorShield library to drive each motor with the
  * Pololu A4990 Dual Motor Driver Shield for Arduino forward, then backward. 
- * The yellow user LED is on when a motor should be running forward and off 
- * when a motor should be running backward.
+ * The yellow user LED is on when a motor is set to a positive speed and off when
+ * a motor is set to a negative speed.
  */
 
 #define LED_PIN 13
@@ -22,7 +22,7 @@ void setup()
 
 void loop()
 {
-  // run left motor forward
+  // run M1 motor with positive speed
 
   digitalWrite(LED_PIN, HIGH);
   
@@ -38,7 +38,7 @@ void loop()
     delay(2);
   }
   
-  // run left motor backward
+  // run M1 motor with negative speed
   
   digitalWrite(LED_PIN, LOW);
   
@@ -54,7 +54,7 @@ void loop()
     delay(2);
   }
 
-  // run right motor forward
+  // run M2 motor with positive speed
   
   digitalWrite(LED_PIN, HIGH);
   
@@ -70,7 +70,7 @@ void loop()
     delay(2);
   }
   
-  // run right motor backward
+  // run M2 motor with negative speed
   
   digitalWrite(LED_PIN, LOW);
   
