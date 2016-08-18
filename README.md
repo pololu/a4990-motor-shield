@@ -10,7 +10,7 @@ Release date: 2016-08-18 <br>
 This is a library for an
 [Arduino-compatible controller](https://www.pololu.com/arduino) that
 interfaces with the
-[Pololu A4990 Dual Motor Driver Shield for Arduino](https://www.pololu.com/catalog/product/2191).
+[Pololu A4990 Dual Motor Driver Shield for Arduino](https://www.pololu.com/catalog/product/2512).
 It makes it simple to drive two brushed, DC motors.
 
 ## Getting started
@@ -18,7 +18,7 @@ It makes it simple to drive two brushed, DC motors.
 ### Hardware
 
 The
-[Pololu A4990 Dual Motor Driver Shield for Arduino](https://www.pololu.com/catalog/product/2191)
+[Pololu A4990 Dual Motor Driver Shield for Arduino](https://www.pololu.com/catalog/product/2512)
 can be purchased on Pololu's website. Before continuing, careful
 reading of the product page is recommended.
 
