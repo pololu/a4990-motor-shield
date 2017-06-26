@@ -81,7 +81,7 @@ The demo ramps motor 1 from stopped to full speed forward, ramps down
 to full speed reverse, and back to stopped. Then, it does the same
 with the other motor.
 
-## Documentatation
+## Documentation
 
 - `void setM1Speed(int speed)` <br> Set speed and direction for
   motor 1. Speed should be between -400 and 400. The motors brake at 0
