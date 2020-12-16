@@ -2,7 +2,6 @@
 
 Version: 2.0.0 <br>
 Release date: 2016-08-18 <br>
-[![Build Status](https://travis-ci.org/pololu/a4990-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/a4990-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
 ## Summary
