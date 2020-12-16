@@ -1,0 +1,2 @@
+skip_boards:
+  - esp32:esp32:featheresp32
